@@ -6,31 +6,25 @@ import Person from './Person';
 class App extends Component {
   constructor() {
     super();
+    this.doSomething = this.doSomething.bind(this);
     this.state = {
-      renderHelloWorld: true,
-      persons: [
-        { name: 'Max', age: 28 },
-        { name: 'Billy', age: 38 },
-        { name: 'Jimmy', age: 14 }
-      ]
+      text: ['One', 'Two', 'Three', 'Four']
     };
   }
 
-  toggleHello = () => {
-    this.setState(prevState => ({
-      renderHelloWorld: !prevState.renderHelloWorld
-    }));
+  doSomething() {
+    const arr = this.state.text.map(this.addEnd);
+    console.log(...arr);
+  }
+  addEnd = str => {
+    const finished = `${str}..!!!!!`;
+    return finished;
   };
 
   render() {
     return (
       <div className="App">
-        {this.state.persons.map(person => (
-          <Person name={person.name} age={person.age} />
-        ))}
-
-        {this.state.renderHelloWorld ? <div>Hello World!!</div> : null}
-        <h1 onClick={this.toggleHello}>test</h1>
+        <h1 onClick={this.doSomething}>hi</h1>
       </div>
     );
   }
