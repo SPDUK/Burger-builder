@@ -17,8 +17,8 @@ class BurgerBuilder extends Component {
       bacon: 0,
       cheese: 0,
       meat: 0
-    }
-    // totalPrice: 2
+    },
+    totalPrice: 2
   };
 
   // type comes from a function in BuildControls.js where we map through the ctrl
@@ -41,7 +41,10 @@ class BurgerBuilder extends Component {
     return (
       <ReactAux>
         <Burger ingredients={this.state.ingredients} />
-        <BuildControls ingredientAdded={this.addIngredientHandler} />
+        <BuildControls
+          price={this.state.totalPrice}
+          ingredientAdded={this.addIngredientHandler}
+        />
       </ReactAux>
     );
   }
