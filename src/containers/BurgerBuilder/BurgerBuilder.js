@@ -36,6 +36,10 @@ class BurgerBuilder extends Component {
     this.setState({ purchasing: true });
   };
 
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
+  };
+
   // type comes from a function in BuildControls.js where we map through the ctrl
   //  and find the type from the controls object
   addIngredientHandler = type => {
@@ -85,7 +89,10 @@ class BurgerBuilder extends Component {
     });
     return (
       <ReactAux>
-        <Modal show={this.state.purchasing}>
+        <Modal
+          show={this.state.purchasing}
+          closeModal={this.purchaseCancelHandler}
+        >
           <OrderSummary ingredients={this.state.ingredients} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
