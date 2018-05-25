@@ -65,9 +65,12 @@ class BurgerBuilder extends Component {
     const disabledInfo = {
       ...this.state.ingredients
     };
+    // eslint-disable-next-line
     // for (const key in disabledInfo.keys) {
     //   disabledInfo[key] = disabledInfo[key] <= 0;
     // }
+    // the same as above but does not throw ESLint errors for performance problems
+    console.log(disabledInfo);
     Object.keys(disabledInfo).forEach(key => {
       disabledInfo[key] = disabledInfo[key] <= 0;
     });
