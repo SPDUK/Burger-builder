@@ -70,8 +70,10 @@ class BurgerBuilder extends Component {
     //   disabledInfo[key] = disabledInfo[key] <= 0;
     // }
     // the same as above but does not throw ESLint errors for performance problems
-    console.log(disabledInfo);
+    // when the page rerenders the disabledInfo is updated
+    // Object.keys goes through the object and returns an array with each key (name) in the object
     Object.keys(disabledInfo).forEach(key => {
+      // eg. if disabledInfo.salad = 0 return true
       disabledInfo[key] = disabledInfo[key] <= 0;
     });
     return (
