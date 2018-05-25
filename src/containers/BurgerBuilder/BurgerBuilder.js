@@ -21,7 +21,8 @@ class BurgerBuilder extends Component {
       meat: 0
     },
     totalPrice: 2,
-    purchasable: false
+    purchasable: false,
+    purchasing: false
   };
 
   updatePurchaseState(ingredients) {
@@ -30,6 +31,10 @@ class BurgerBuilder extends Component {
       .reduce((_sum, el) => _sum + el, 0);
     this.setState({ purchasable: sum > 0 });
   }
+
+  purchaseHandler = () => {
+    this.setState({ purchasing: true });
+  };
 
   // type comes from a function in BuildControls.js where we map through the ctrl
   //  and find the type from the controls object
@@ -80,7 +85,7 @@ class BurgerBuilder extends Component {
     });
     return (
       <ReactAux>
-        <Modal>
+        <Modal show={this.state.purchasing}>
           <OrderSummary ingredients={this.state.ingredients} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
@@ -89,6 +94,7 @@ class BurgerBuilder extends Component {
           purchaseable={this.state.purchasable}
           ingredientRemoved={this.removeIngredientHandler}
           ingredientAdded={this.addIngredientHandler}
+          purchaseHandler={this.purchaseHandler}
           disabled={disabledInfo}
         />
       </ReactAux>
