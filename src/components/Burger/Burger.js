@@ -7,7 +7,8 @@ const burger = props => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map(igKey =>
       [...Array(props.ingredients[igKey])].map((_, i) => (
-        <BurgerIngredient key={i.id} type={igKey} />
+        // fix this key somehow idk ??? needs to be unique
+        <BurgerIngredient key={Math.random()} type={igKey} />
       ))
     )
     .reduce((arr, el) => arr.concat(el), []);
