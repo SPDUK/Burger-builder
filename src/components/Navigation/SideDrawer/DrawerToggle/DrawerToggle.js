@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './DrawerToggle.css';
 
 const drawerToggle = props => (
   <div
@@ -6,8 +7,11 @@ const drawerToggle = props => (
     role="button"
     tabIndex="0"
     onClick={props.clicked}
+    className={classes.DrawerToggle}
   >
-    MENU
+    <div />
+    <div />
+    <div />
   </div>
 );
 
