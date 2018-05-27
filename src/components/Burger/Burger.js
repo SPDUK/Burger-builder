@@ -7,7 +7,7 @@ const burger = props => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map(igKey =>
       [...Array(props.ingredients[igKey])].map((_, i) => (
-        // fix this key somehow idk ??? needs to be unique
+        // fix this key somehow ??? needs to be unique
         <BurgerIngredient key={Math.random()} type={igKey} />
       ))
     )
@@ -15,6 +15,7 @@ const burger = props => {
   if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding ingredients!</p>;
   }
+
   return (
     <div className={classes.Burger}>
       <BurgerIngredient type="bread-top" />
