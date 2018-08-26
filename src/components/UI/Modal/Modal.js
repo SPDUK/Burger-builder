@@ -15,10 +15,7 @@ class Modal extends Component {
   render() {
     return (
       <ReactAux>
-        <Backdrop
-          removeBackdrop={this.props.closeModal}
-          show={this.props.show}
-        />
+        <Backdrop removeBackdrop={this.props.closeModal} show={this.props.show} />
         <div
           style={{
             transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
